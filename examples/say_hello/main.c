@@ -23,7 +23,36 @@
 #include <board.h>
 #include "periph/gpio.h"
 #include "periph/uart.h"
-#include "xtimer.h"
+#include "time.h"
+
+bool led_state = false;
+
+void gpio_cb(void)
+{
+    if (led_state == false) {
+        gpio_write(LED0_PIN, 1);
+        led_state = true;
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+    }
+    else {
+        gpio_write(LED0_PIN, 0);
+        led_state = false;
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+        printf("btn click \r\n");
+    }
+    
+}
 
 int main(void)
 {
