@@ -19,6 +19,8 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include <stdbool.h>
 #include <board.h>
 #include "periph/gpio.h"
@@ -32,6 +34,7 @@ void gpio_cb(void)
     if (led_state == false) {
         gpio_write(LED0_PIN, 1);
         led_state = true;
+        fflush(stdout);
         printf("btn click \r\n");
         printf("btn click \r\n");
         printf("btn click \r\n");
@@ -43,6 +46,7 @@ void gpio_cb(void)
     else {
         gpio_write(LED0_PIN, 0);
         led_state = false;
+        fflush(stdout);
         printf("btn click \r\n");
         printf("btn click \r\n");
         printf("btn click \r\n");
